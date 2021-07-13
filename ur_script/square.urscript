@@ -1,0 +1,20 @@
+def robot_program():
+  local square = [
+    p[0.1, 0.0, 0.0, 0.0, 0.0, 0.0],
+    p[0.1, 0.1, 0.0, 0.0, 0.0, 0.0],
+    p[0.0, 0.1, 0.0, 0.0, 0.0, 0.0],
+    p[0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  ]
+
+  local original = get_actual_tcp_pose()
+
+  local k = 0
+
+  while k < 4:
+    local target = pose_add(original, square[k])
+    movel(target)
+    sleep(1)
+
+    k = k + 1
+  end
+end

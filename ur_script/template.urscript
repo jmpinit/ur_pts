@@ -1,0 +1,19 @@
+def robot_program():
+  local poses = [
+    {{#points}}
+    p{{pose}}
+    {{/points}}
+  ]
+
+  local original = get_actual_tcp_pose()
+
+  local k = 0
+
+  while k < 4:
+    local target = pose_add(original, square[k])
+    movel(target)
+    sleep(1)
+
+    k = k + 1
+  end
+end
